@@ -1,0 +1,26 @@
+.ex {
+    &-news-later {
+        @apply py-20;
+        .container {
+            @apply bg-white rounded-2xl p-5 flex flex-col text-center gap-5;
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        }
+        &__content {
+            background-image: url('/public/images/post/thumbnail/t22.jpg');
+            @apply py-10 rounded-2xl bg-cover bg-center bg-no-repeat;
+            &-title {
+                @apply text-white mb-5; 
+            }
+            &-form {
+                @apply bg-white max-w-lg mx-auto p-5 relative rounded-md;
+                input {
+                    @apply outline-none border-none w-full;
+                    font-family: 'Open Sans', serif;
+                }
+                button {
+                    @apply absolute top-1/2 -translate-y-1/2 right-5 py-3;
+                }
+            }
+        }  
+    }
+}

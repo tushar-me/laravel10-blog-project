@@ -1,0 +1,17 @@
+.ex {
+    &-login {
+        background-image: url('/public/images/post/thumbnail/t20.jpg');
+        @apply bg-no-repeat bg-cover bg-center relative;
+        &::after {
+            content: '';
+            background-image: url('/public/images/gallery.jpg');
+            @apply absolute w-1/2 h-full top-0 right-0 bottom-0 bg-cover bg-no-repeat bg-center;
+        }
+        &__content {
+            @apply w-full min-h-screen flex items-center justify-center;
+            form {
+                @apply w-full max-w-lg border rounded-md py-8 px-5 bg-white z-10  shadow-md;
+            }
+        }
+    }
+}

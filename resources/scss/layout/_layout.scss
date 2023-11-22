@@ -1,0 +1,9 @@
+.container {
+	@apply mx-auto max-w-[95%] lg:max-w-[90%] 2xl:max-w-[80%];
+}
+
+.ex {
+	&-primary-button {
+		@apply px-6 py-2 bg-primary text-white rounded-md;
+	}
+}

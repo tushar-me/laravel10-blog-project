@@ -1,0 +1,41 @@
+.ex {
+    &-all-post {
+        @apply mt-28;
+        &__banner {
+            background-image: url('/public/images/post/thumbnail/t18.jpg');
+            @apply w-full h-52 bg-cover bg-no-repeat bg-center bg-fixed mt-5 mb-8 flex items-center justify-center;
+            h2 {
+                @apply text-white;
+            }
+        }
+        &__items {
+            @apply flex flex-wrap -mx-2;
+            &-item {
+                @apply w-1/4 px-2;
+                &-box {
+                    @apply inline-block border rounded-md p-3 hover:border-primary mb-8;
+                    &-thumbnail {
+                        img {
+                            @apply w-full h-48 object-cover rounded-t-md;
+                        }
+                    }
+                    &-content {
+                        @apply pt-5;
+                        &-title {
+                            @apply text-2xl;
+                        }
+                        &-info {
+                            @apply flex items-center justify-between mt-5;
+                            &-author {
+                                @apply flex gap-2 items-center;
+                                img {
+                                    @apply w-8 h-8 rounded-full object-cover;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

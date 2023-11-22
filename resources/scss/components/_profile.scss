@@ -1,0 +1,226 @@
+.ex {
+    &-profile {
+        
+        &__content {
+            &-topbar {
+                @apply flex justify-end py-3 gap-4 border-b items-center relative;
+                &-notification {
+                    @apply w-8 h-8 flex items-center justify-center relative;
+                    span {
+                        @apply absolute bg-primary rounded-full text-white w-5 h-5 flex items-center justify-center -right-1 -top-1;
+                    }
+                    i {
+                        @apply text-xl text-[#6D7280];
+                    }
+                }
+                &-profile {
+                    &-img {
+                        @apply cursor-pointer w-8 h-8 rounded-full border;
+                        img {
+                            @apply w-8 h-8 object-cover rounded-full;
+                        }
+                    }
+                    &-toggle {
+                        @apply absolute bg-white shadow-md top-16 right-2 w-44 h-auto rounded-sm border hidden;
+                        ul {
+                            li a {
+                                @apply p-4 hover:bg-primary hover:text-white flex items-center gap-2;
+                                i {
+                                    @apply text-base;
+                                }
+                            }
+                        }
+                        &--active {
+                            @apply block;
+                        }
+                    }
+                }
+            }
+            &-cover-photo {
+                img {
+                    @apply w-full h-32 object-cover;
+                }
+            }
+            &-profile-pic {
+                @apply -mt-14;
+                img {
+                    @apply w-28 h-28 rounded-full mx-auto object-cover;
+                }
+            }
+            &-name {
+                @apply text-center text-3xl mt-4 mb-2;
+            }
+            &-bio {
+                @apply max-w-xl mx-auto text-center mb-3;
+            }
+            p {
+                @apply text-center;
+            }
+        }
+        &-tab {
+            @apply mb-8;
+            &-links {
+                @apply flex items-center justify-center mt-10 border-y gap-8;
+                &-link {
+                    @apply px-2  py-4 relative;
+                    &--active {
+                        &::after {
+                            content: '';
+                            @apply absolute w-full h-[2px] bg-primary bottom-0 left-0 right-0 rounded-t-sm;
+                        }
+                    }
+                }
+            }
+            &-content {
+                @apply border rounded-lg mt-5 p-5 hidden;
+                &--active {
+                    @apply block;
+                }
+                &--profile {
+                    @apply border-none flex p-0;
+                }
+                &-text {
+                    @apply w-full lg:w-3/4 ;
+                    h3 {
+                        @apply mb-4;
+                    }
+                }
+                &-stats {
+                    @apply w-full lg:w-1/4 ml-5;
+                    h4 {
+                        @apply mb-4;
+                    }
+                    ul {
+                        @apply flex flex-col gap-2;
+                        li {
+                            @apply flex items-center justify-between p-3 rounded-md;
+                            i {
+                                @apply text-sm;
+                            }
+                            
+                        }
+                    }
+                }
+                &-badges {
+                    @apply border p-5 rounded-lg mt-5;
+                    ul {
+                        @apply flex flex-row;
+                        li {
+                            @apply p-0;
+                            img {
+                                @apply w-12 h-12;
+                            }
+                        }
+                    }
+                }
+                &-post {
+                    @apply overflow-x-auto;
+                    table {
+                        @apply min-w-[1240px];
+                        font-family: 'Open Sans', serif;
+                        thead {
+                            @apply border-b;
+                            th {
+                                @apply text-left pb-5 text-[#6D7280] font-medium;
+                            }
+                        }
+                        td {
+                            @apply py-2 pr-5;
+                            img {
+                                @apply w-32 h-16 object-cover rounded-md;
+                            }
+                            span {
+                                // @apply text-pink-700 bg-pink-100 px-4 py-1 rounded-full;
+                            }
+                            a {
+                                @apply flex items-center gap-2 px-4 py-1 rounded-full;
+                            }
+                            .read {
+                                @apply text-primary bg-cyan-100;
+                            }
+                            .edit {
+                                @apply bg-green-100 text-green-700;
+                            }
+                            .delete {
+                                @apply bg-red-100 text-red-700;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &-update {
+            @apply bg-gray-300;
+            &__content {
+                @apply max-w-3xl bg-white mx-auto px-10 text-center py-12 mt-12;
+                &-cover-photo {
+                    @apply bg-white rounded-md p-3 w-full h-40 mb-10;
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    &-wrapper {
+                        @apply w-full h-full relative;
+                        img {
+                            @apply w-full h-full object-cover rounded-md;
+                        }
+                        label {
+                            @apply w-7 h-7 bg-primary flex items-center justify-center cursor-pointer rounded-full absolute -right-2 -top-2;
+                            i {
+                                @apply text-white text-sm;
+                            }
+                        }
+                        
+                    }
+                }
+                &-profile-pic {
+                    @apply bg-white rounded-md p-5 w-full  mb-10;
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    &-wrapper {
+                        @apply w-40 h-40 mx-auto relative;
+                        img {
+                            @apply w-full h-full object-cover rounded-full;
+                        }
+                        label {
+                            @apply w-7 h-7 bg-primary flex items-center justify-center cursor-pointer rounded-full absolute right-2 top-2;
+                            i {
+                                @apply text-white text-sm;
+                            }
+                        }
+                    }
+                }
+                h4 {
+                    @apply mb-4;
+                }
+                input {
+                    @apply outline-none w-1/2 mx-auto border-gray-300 rounded text-gray-600 text-lg font-semibold;
+                    &:focus {
+                        @apply ring-0 ring-transparent outline-none outline-0 border-gray-300;
+                    } 
+                }
+                &-name {
+                    @apply bg-white rounded-md p-5 w-full mb-10;
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    
+                }  
+                &-sub-title {
+                    @apply bg-white rounded-md p-5 w-full h-36 mb-10;
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    input {
+                        @apply w-full;
+                    }
+                }
+                &-desc {
+                    @apply bg-white rounded-md p-5 w-full mb-10;
+                    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+                    textarea {
+                        @apply w-full h-60 border border-gray-300 text-gray-600 font-normal text-base rounded-md tracking-wider caret-primary;
+                    }
+                }
+                &-btn {
+                    @apply text-right mt-5;
+                    button {
+                        @apply px-8 py-2 text-lg font-semibold tracking-wide;
+                    }
+                }
+            }
+        }
+    }
+}

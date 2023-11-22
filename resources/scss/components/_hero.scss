@@ -1,0 +1,90 @@
+.ex {
+    &-hero {
+        @apply pt-40 pb-28 bg-no-repeat bg-cover relative bg-center mt-20;
+        background-image: url('/public/images/hero-bg.png');
+        &__text {
+            @apply ml-72 mb-5;
+            h1 {
+                @apply text-6xl text-[#000] font-bold;
+                font-family: 'Give You Glory', cursive;
+            }
+            p {
+                @apply max-w-sm text-lg font-medium text-black;
+                font-family: 'Playfair Display', serif;
+            }
+        }
+        &__items {
+            @apply flex items-end -mx-3;
+            &-item {
+                @apply px-3;
+                &-box {
+                    @apply overflow-hidden;
+                    img {
+                        @apply w-full h-auto;
+                    }
+                }
+            }
+        }
+    }
+    &-blog {
+        @apply bg-[#FE8001] py-32;
+        &__content {
+            @apply flex items-center gap-20;
+            &-left {
+                h2 {
+                    @apply text-white mb-5;
+                }
+                p {
+                    @apply text-white;
+                }
+            }
+            &-right {
+                @apply -mr-32;
+                img {
+                    @apply rotate-12;
+                }
+            }
+        }
+    }
+    &-memories {
+        @apply bg-white py-32;
+        &__content {
+            @apply flex items-center;
+            h2 {
+                @apply mb-5;
+            }
+        }
+    }
+    &-join-others {
+        background-image: url('/public/images/map.jpg');
+        @apply bg-cover bg-no-repeat bg-top py-40 text-center;
+        h2 {
+            @apply text-white mb-6;
+        }
+        p {
+            @apply text-white max-w-xl mx-auto;
+        }
+        a {
+            @apply text-white text-lg bg-primary py-2 px-5 rounded inline-block mt-6;
+        }
+    }
+    &-main-hero {
+        @apply w-full h-screen overflow-hidden relative mb-10;
+        &-video {
+            @apply min-w-full min-h-full;
+        }
+        &__content {
+            @apply absolute w-[1000px] p-8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-center bg-black bg-opacity-25;
+            h1 {
+                @apply text-white text-5xl uppercase font-bold;
+                font-family: 'Playfair Display', serif;
+            }
+            p {
+                @apply text-white my-5 font-semibold;
+            }
+            a {
+                @apply inline-block bg-primary py-3 px-4 text-white;
+            }
+        }
+    }
+}

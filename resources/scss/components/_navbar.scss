@@ -1,0 +1,52 @@
+.ex {
+    &__nav {
+        @apply py-5 bg-white fixed top-0 left-0 right-0 z-50 shadow-sm;
+        &__items {
+            @apply flex items-center justify-between;
+            &-logo {
+                img {
+                    @apply w-44 h-auto;
+                }
+            }
+            &-links {
+                @apply flex items-center gap-8;
+            }
+            &-search {
+                input {
+                    @apply outline-none border-[#b9b8b8] rounded-md w-60;
+                }
+                i {
+                    @apply -ml-6 text-[#6D7280];
+                }
+            }
+            &-profile {
+                &-img {
+                    @apply  cursor-pointer flex items-center gap-3;
+                    &:hover {
+                        p {
+                            @apply text-primary;
+                        }
+                    }
+                    img {
+                        @apply w-8 h-8 rounded-full object-cover;
+                    }
+                }
+                &-popup {
+                    @apply absolute right-8 bg-white py-2 w-48 hidden top-20;
+                    &-item {
+                        @apply py-2 pl-4 flex items-center gap-2 hover:text-primary ;
+                    }
+                    &--active {
+                        @apply block;
+                    }
+                }
+            }
+            &-btns {
+                @apply flex items-center gap-3;
+                a {
+                    @apply hover:text-primary;
+                }
+            }
+        }
+    }
+}
