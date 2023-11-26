@@ -3,6 +3,60 @@
         @apply bg-gray-300;
         &__content {
             @apply max-w-3xl bg-white pt-28 mx-auto px-10 text-center pb-12  relative;
+            &-popup {
+                @apply fixed top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 w-full h-screen flex items-center justify-center px-5;
+                z-index: 999;
+
+                &-box {
+                    @apply  w-full max-w-2xl p-8 bg-white rounded-md flex flex-col items-center;
+                    &-icon {
+                        @apply -mt-36;
+                        img {
+                            @apply w-32 h-auto;
+                        }
+                    }
+                    h3 {
+                        @apply  font-bold text-4xl tracking-wide mb-5;
+                    }
+                    h4 {
+                        @apply font-semibold tracking-wide text-2xl;
+                        font-family: 'Open Sans', serif;
+                    }
+                    p{
+                        @apply max-w-xs;
+                    }
+                    &-btns {
+                        @apply flex items-center justify-center gap-3 mt-5;
+                        a {
+                            @apply inline-block border border-primary rounded px-5 py-1 font-semibold text-primary;
+                        }
+                        .add {
+                            @apply bg-primary text-white;
+                        }   
+                    }
+                }
+                &--success {
+                    @apply hidden;
+                    h3 {
+                        @apply text-primary;
+                    }
+                }
+                &--error {
+                    @apply hidden;  
+                    .ex-create-post__content-popup-box-icon {
+                        @apply mt-0;
+                    }
+                    img {
+                        @apply w-12;
+                    }
+                    h3 {
+                        @apply text-red-600;
+                    }
+                    a {
+                        @apply bg-primary text-white;
+                    }
+                }
+            }
             &-detail {
                 @apply absolute w-72 h-auto bg-white p-5 -left-[300px] top-24 text-left flex flex-col gap-4;
                 p  {

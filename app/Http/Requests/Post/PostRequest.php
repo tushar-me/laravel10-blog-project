@@ -27,11 +27,11 @@ class PostRequest extends FormRequest
             'thumbnail' => 'required | mimes:jpeg, png, jpg',
             'content' => 'required',
             'category' => 'required',
-            'author_bio' => 'max_word:50',
+            'author_bio' => 'required',
         ];
     }
 
-    public function message(): array
+    public function messages(): array
     {
         return [
             'title.required' => 'The Title field is required.',
@@ -42,12 +42,5 @@ class PostRequest extends FormRequest
             'author_bio.max_words' => 'The Author Bio must not exceed 50 words.',
         ];
     }
-
-    public function prepareForValidation(): void 
-    {
-        $this->merge([
-            'slug' => Str::slug($this->slug),
-            'author_bio' => Str::words($this->author_bio, 50, ''),
-        ]);
-    }
+    protected $stopOnFirstFailure = true;
 }

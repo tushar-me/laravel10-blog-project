@@ -10,6 +10,5 @@ class ReadTimeCalculator
         $minutes = ceil($wordCount  / $wordPerMinutes);
 
         return $minutes;
-
     }
 }

@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('thumbnail');
             $table->text('content');
+            $table->integer('read_time');
             $table->text('author_bio')->nullable();
             $table->integer('status')->default(0);
             $table->timestamps();

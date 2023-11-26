@@ -1,3 +1,3 @@
 <x-app-layout>
-    <x-post.create/>
+        <x-post.create :categories="$categories" />
 </x-app-layout>
