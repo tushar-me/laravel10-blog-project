@@ -1,3 +1,4 @@
+@props(['pendingPosts'])
 <div class="ex-profile-tab">
     <div class="container">
         <ul class="ex-profile-tab-links">
@@ -112,38 +113,40 @@
                             <th>Thumbnail</th>
                             <th>Title</th>
                             <th>Status</th>
-                            <th>Created</th>
-                            <th>Last Update</th>
+                            <th>Read Time</th>
+                            <th>Category</th>
                             <th>Read</th>
                             <th>Edit & Delete</th>
                         </tr>
                     </thead>
-                    <tr>
-                        <td>
-                            <img src="{{ asset('images/post/thumbnail/t12.jpg') }}">
-                        </td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing...</td>
-                        <td>
-                            <span class="text-pink-700 bg-pink-100  px-4 py-1 rounded-full">Pending</span>
-                        </td>
-                        <td>5 days ago</td>
-                        <td>5 days ago</td>
-                        <td>
-                            <a href="{{ route('pending.single.post') }}" class="read">
-                                Read<i class="fa-regular fa-eye"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <div class="flex gap-4">
-                                <a href="#" class="edit">
-                                    Edit <i class="fa-regular fa-pen-to-square"></i>
+                    @foreach ( $pendingPosts as $pendingPost )
+                        <tr>
+                            <td>
+                                <img src="{{ asset('uploads/'. $pendingPost->thumbnail) }}">
+                            </td>
+                            <td>{{ Illuminate\Support\Str::words($pendingPost->title, $words = 5, $end = '...') }}</td>
+                            <td>
+                                <span class="text-pink-700 bg-pink-100  px-4 py-1 rounded-full">Pending</span>
+                            </td>
+                            <td>{{ $pendingPost->read_time }} min</td>
+                            <td>{{ $pendingPost->category->name }}</td>
+                            <td>
+                                <a href="/pending/{{ $pendingPost->slug }}" class="read">
+                                    Read<i class="fa-regular fa-eye"></i>
                                 </a>
-                                <a href="#" class="delete">
-                                    Delete <i class="fa-solid fa-trash-can"></i>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                            <td>
+                                <div class="flex gap-4">
+                                    <a href="/edit/{{$pendingPost->slug}}" class="edit">
+                                        Edit <i class="fa-regular fa-pen-to-square"></i>
+                                    </a>
+                                    <a href="#" class="delete">
+                                        Delete <i class="fa-solid fa-trash-can"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
                 </table>
             </div>
         </div>

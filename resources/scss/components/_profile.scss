@@ -116,7 +116,7 @@
                 &-post {
                     @apply overflow-x-auto;
                     table {
-                        @apply min-w-[1240px];
+                        @apply w-full min-w-[1280px];
                         font-family: 'Open Sans', serif;
                         thead {
                             @apply border-b;
@@ -133,7 +133,7 @@
                                 // @apply text-pink-700 bg-pink-100 px-4 py-1 rounded-full;
                             }
                             a {
-                                @apply flex items-center gap-2 px-4 py-1 rounded-full;
+                                @apply inline-flex items-center gap-2 px-4 py-1 rounded-full;
                             }
                             .read {
                                 @apply text-primary bg-cyan-100;

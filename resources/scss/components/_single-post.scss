@@ -1,14 +1,14 @@
 .ex {
     &-single-post {
         &__content {
-            @apply flex mt-5 px-10;
+            @apply flex mt-28 px-10;
             &-left {
                 @apply w-2/3;
                 &-thumbnail {
                     @apply relative overflow-hidden mb-8 rounded-xl transition-all ease-in-out duration-300;
                     box-shadow: 0px 8px 13px -3px rgba(0, 0, 0, 0.07);
                     img {
-                        @apply w-full h-auto transition-all ease-in-out duration-300;
+                        @apply w-full h-[400px] object-cover transition-all ease-in-out duration-300;
                     }
                     &-info {
                         @apply absolute left-0 bottom-0 right-0 transition-all ease-in-out duration-300 z-10 p-8;

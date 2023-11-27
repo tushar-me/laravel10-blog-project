@@ -149,6 +149,9 @@
                         @apply text-4xl mb-4 text-black;
                     }
                 }
+                .start {
+                    @apply absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-1/2;
+                }
                 #response {
                     float: left;
                     clear: both;

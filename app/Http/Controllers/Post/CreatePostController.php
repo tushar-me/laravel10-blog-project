@@ -24,7 +24,7 @@ class CreatePostController extends Controller
     {
         
         try {
-
+            
             $thumbnail = time(). ".".$request->file('thumbnail')->extension();
             $request->file('thumbnail')->move(public_path('uploads'), $thumbnail);
 
@@ -47,7 +47,6 @@ class CreatePostController extends Controller
         } catch (Exception $e) {
             return response()->json([
                 'status' => 'failed',
-                'message' => $e
             ]);
         }
     }

@@ -5,7 +5,7 @@ namespace App\Http\Requests\Post;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Str;
 
-class PostRequest extends FormRequest
+class PostUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,7 @@ class PostRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'thumbnail' => 'required | mimes:jpeg, png, jpg',
+            'thumbnail' => 'mimes:jpeg, png, jpg',
             'content' => 'required',
             'category' => 'required',
             'author_bio' => 'required',
@@ -35,7 +35,6 @@ class PostRequest extends FormRequest
     {
         return [
             'title.required' => 'The Title field is required.',
-            'thumbnail.required' => 'The Thumbnail field is required.',
             'thumbnail.mimes' => 'The Thumbnail must be a file of type: jpeg, png, jpg.',
             'content.required' => 'The Body Text field is required.',
             'category.required' => 'Please select a Category.',

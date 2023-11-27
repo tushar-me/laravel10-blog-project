@@ -26,9 +26,9 @@
             <div class="ex-profile__content-profile-pic">
                 <img src="{{ asset('images/tushar.jpeg')}}">
             </div>
-            <h4 class="ex-profile__content-name">Tushar Imran</h4>
+            <h4 class="ex-profile__content-name">{{ auth()->user()->name }}</h4>
             <p class="ex-profile__content-bio">https://www.facebook.com/tusharimran.online</p>
-            <p>@tusharimran . joined june 2020</p>
+            <p><span>@</span>{{auth()->user()->username }} . {{ auth()->user()->created_at->format('F j, Y') }}</p>
         </div>
     </div>
 </div>

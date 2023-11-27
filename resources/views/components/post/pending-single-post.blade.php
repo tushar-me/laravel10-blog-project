@@ -1,25 +1,24 @@
+@props(['post'])
 <section class="ex-single-post">
     <div class="container ex-single-post__content">
         <div class="ex-single-post__content-left mx-auto">
             <div class="ex-single-post__content-left-thumbnail">
-                <img class="post-img" src="{{ asset('images/post/thumbnail/t20.jpg')}}">
+                <img class="post-img" src="{{ asset('uploads/'. $post->thumbnail) }}">
                 <div class="ex-single-post__content-left-thumbnail-info">
-                    <span>Travel</span>
-                    <h2 class="ex-single-post__content-left-thumbnail-info-title">Culpa sit Laboris Exercitation ea Fugiat</h2>
+                    <span>{{ $post->category->name }}</span>
+                    <h2 class="ex-single-post__content-left-thumbnail-info-title">{{ $post->title }}</h2>
                     <div class="ex-single-post__content-left-thumbnail-info-a_c">
                         <div class="ex-single-post__content-left-thumbnail-info-a_c-author">
                             <div>
-                                <img src="{{ asset('images/post/author/author.png') }}">
+                                <img src="">
                             </div>
-                            <p>JHON . 2 MONTHS AGO</p>
+                            <p>{{ $post->user->name }} . {{ $post->created_at->format('F j, Y') }}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <p class="ex-single-post__content-left-content">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut explicabo, quidem pariatur perspiciatis fuga ipsam animi harum exercitationem, quia inventore tempore tempora. Veritatis dolorum illo laborum minima voluptatem officiis quam, natus, eos accusamus velit, <br><br> cupiditate commodi dolor quae iure dolorem officia? Natus dolore quibusdam, eligendi molestias labore enim maiores nisi.
-
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut explicabo, quidem pariatur perspiciatis fuga ipsam animi harum exercitationem, quia inventore tempore tempora. Veritatis dolorum illo laborum minima voluptatem officiis quam, natus, eos inventore accusamus velit, <br><br> cupiditate commodi dolor quae iure dolorem officia? Natus dolore quibusdam, eligendi molestias labore enim maiores nisi.
+                {{ $post->content }}
             </p>
             <div class="ex-single-post__content-left-author">
                 <div class="ex-single-post__content-left-author-head">
