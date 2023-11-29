@@ -2,11 +2,11 @@
     @auth
         <x-home.hero/>
 
-        <x-home.latest-post/>
+        <x-home.latest-post :posts="$posts"/>
             
-        <x-home.gadget-post/>
+        <x-home.gadget-post :gadgetPosts="$gadgetPosts"/>
         
-        <x-home.travel-post/>
+        <x-home.travel-post :travelPosts="$travelPosts"/>
         
         <x-home.create-blog/>
         

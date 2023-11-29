@@ -1,5 +1,5 @@
 
-    @auth
+    {{-- @auth
     <footer class="ex-footer">
         <div class="container">
             <div class="ex-footer__items">
@@ -138,7 +138,7 @@
             </div>
         </div>
     </footer>
-    @else
+    @else --}}
     <footer class="ex-footer">
         <div class="container">
             <div class="ex-footer__items">
@@ -214,4 +214,4 @@
             </div>
         </div>
     </footer>
-    @endauth
+    {{-- @endauth --}}

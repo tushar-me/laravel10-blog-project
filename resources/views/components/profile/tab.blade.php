@@ -1,4 +1,5 @@
 @props(['pendingPosts'])
+@props(['publishedPosts'])
 <div class="ex-profile-tab">
     <div class="container">
         <ul class="ex-profile-tab-links">
@@ -33,7 +34,7 @@
                             <div>
                                 <i class="fa-regular fa-file"></i> Posts 
                             </div>
-                            <span>0</span>
+                            <span>{{ count($publishedPosts) }}</span>
                         </li>
                         <li class="bg-green-50 text-green-900">
                             <div>
@@ -64,45 +65,53 @@
         </div>
         <div class="ex-profile-tab-content" id="published">
             <div class="ex-profile-tab-content-post">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Thumbnail</th>
-                            <th>Title</th>
-                            <th>Status</th>
-                            <th>Created</th>
-                            <th>Last Update</th>
-                            <th>Read</th>
-                            <th>Edit & Delete</th>
-                        </tr>
-                    </thead>
-                    <tr>
-                        <td>
-                            <img src="{{ asset('images/post/thumbnail/t12.jpg') }}">
-                        </td>
-                        <td>Lorem ipsum dolor sit amet consectetur adipisicing...</td>
-                        <td>
-                            <span class="text-blue-900 bg-blue-50 px-4 py-1 rounded-full">Published</span>
-                        </td>
-                        <td>5 days ago</td>
-                        <td>5 days ago</td>
-                        <td>
-                            <a href="{{ route('published.single.post') }}" class="read">
-                                Read<i class="fa-regular fa-eye"></i>
-                            </a>
-                        </td>
-                        <td>
-                            <div class="flex gap-4">
-                                <a href="#" class="edit">
-                                    Edit <i class="fa-regular fa-pen-to-square"></i>
-                                </a>
-                                <a href="#" class="delete">
-                                    Delete <i class="fa-solid fa-trash-can"></i>
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                </table>
+                @if ($publishedPosts && count($publishedPosts) > 0)
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Thumbnail</th>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th>Read Time</th>
+                                <th>Category</th>
+                                <th>Read</th>
+                                <th>Edit & Delete</th>
+                            </tr>
+                        </thead>
+                        @foreach ( $publishedPosts as $publishedPost)
+                            <tr>
+                                <td>
+                                    <img src="{{ asset('uploads/'. $publishedPost->thumbnail) }}">
+                                </td>
+                                <td>{{ Illuminate\Support\Str::words($publishedPost->title, $words = 5, $end = '...')}}</td>
+                                <td>
+                                    <span class="text-blue-900 bg-blue-50 px-4 py-1 rounded-full">Published</span>
+                                </td>
+                                <td>{{ $publishedPost->read_time }}</td>
+                                <td>{{ $publishedPost->category->name }}</td>
+                                <td>
+                                    <a href="/posts/{{ $publishedPost->category->name }}/{{  $publishedPost->slug }}" class="read">
+                                        Read<i class="fa-regular fa-eye"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <div class="flex gap-4">
+                                        <a href="/edit/{{ $publishedPost->slug }}" class="edit">
+                                            Edit <i class="fa-regular fa-pen-to-square"></i>
+                                        </a>
+                                        <a href="#" class="delete">
+                                            Delete <i class="fa-solid fa-trash-can"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
+                        
+                    </table>
+
+                @else
+                <p>No published posts available.</p>
+                @endif
             </div>
         </div>
         <div class="ex-profile-tab-content" id="pending">

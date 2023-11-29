@@ -1,3 +1,3 @@
 <x-app-layout>
-    <x-post.all/>
+    <x-post.all :posts="$posts"/>
 </x-app-layout>

@@ -1,4 +1,4 @@
 <x-guest-layout>
     <x-profile.info/>
-    <x-profile.tab :pendingPosts="$pendingPosts"/>
+    <x-profile.tab :pendingPosts="$pendingPosts" :publishedPosts="$publishedPosts"/>
 </x-guest-layout>

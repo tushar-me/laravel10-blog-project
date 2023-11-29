@@ -27,7 +27,6 @@ class PostRequest extends FormRequest
             'thumbnail' => 'required | mimes:jpeg, png, jpg',
             'content' => 'required',
             'category' => 'required',
-            'author_bio' => 'required',
         ];
     }
 
