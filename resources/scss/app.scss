@@ -49,7 +49,9 @@
 |
 | 16/ Login Reg.. Form
 |
-| 17/ Footer
+| 17/ Dashboard
+|
+| 18/ Footer
 |
 |
 |
@@ -141,6 +143,11 @@
 @import "components/login";
 
 /*------------------------------------
-	17/ Footer
+	17/ Dashboard
+------------------------------------*/
+@import "components/dashboard";
+
+/*------------------------------------
+	18/ Footer
 ------------------------------------*/
 @import "components/footer";

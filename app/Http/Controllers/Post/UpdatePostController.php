@@ -33,6 +33,7 @@ class UpdatePostController extends Controller
                 $request->file('thumbnail')->move(public_path('uploads'), $thumbnail);
                 $post->thumbnail = $thumbnail;
             }
+            $post->status = 0;
             $post->user_id = Auth::id();
             $post->title = $request->title;
             $post->slug = SlugService::createSlug(Post::class, 'slug', $request->title);

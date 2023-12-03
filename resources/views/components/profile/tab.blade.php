@@ -1,6 +1,11 @@
-@props(['pendingPosts'])
-@props(['publishedPosts'])
+
 <div class="ex-profile-tab">
+    <div class="delete_success">
+        <div class="delete_success-popup">
+            <h4>Post deleted successfully</h4>
+            <button class="ok">Ok</button>
+        </div>
+    </div>
     <div class="container">
         <ul class="ex-profile-tab-links">
             <li>
@@ -22,8 +27,8 @@
             <div class="ex-profile-tab-content-text">
                 <div class="border p-5 rounded-lg">
                     <h3>About</h3>
-                    <p>Hi, i am tushar</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, odit dolorum sint maiores animi assumenda deleniti eligendi, placeat optio voluptatem, fugit neque id dicta accusantium sed facere commodi ex dolorem.</p>
+                    <p class="text-gray-800 font-semibold mb-2">{{ $user->profile && $user->profile->about_title ? $user->profile->about_title : ''}}</p>
+                    <p class="max-w-[800px]">{{ $user->profile && $user->profile->about_desc ? $user->profile->about_desc : ''}}</p>
                 </div>
             </div>
             <div class="ex-profile-tab-content-stats">
@@ -79,7 +84,7 @@
                             </tr>
                         </thead>
                         @foreach ( $publishedPosts as $publishedPost)
-                            <tr>
+                            <tr class="post">
                                 <td>
                                     <img src="{{ asset('uploads/'. $publishedPost->thumbnail) }}">
                                 </td>
@@ -99,12 +104,13 @@
                                         <a href="/edit/{{ $publishedPost->slug }}" class="edit">
                                             Edit <i class="fa-regular fa-pen-to-square"></i>
                                         </a>
-                                        <a href="#" class="delete">
+                                        <a href="/delete/{{ $publishedPost->slug }}" class="delete"  id="deletePublishedBtn">
                                             Delete <i class="fa-solid fa-trash-can"></i>
                                         </a>
                                     </div>
                                 </td>
                             </tr>
+                            
                         @endforeach
                         
                     </table>
@@ -116,6 +122,7 @@
         </div>
         <div class="ex-profile-tab-content" id="pending">
             <div class="ex-profile-tab-content-post">
+                @if ($pendingPosts && count($pendingPosts) > 0)
                 <table>
                     <thead>
                         <tr>
@@ -129,7 +136,7 @@
                         </tr>
                     </thead>
                     @foreach ( $pendingPosts as $pendingPost )
-                        <tr>
+                        <tr class="post">
                             <td>
                                 <img src="{{ asset('uploads/'. $pendingPost->thumbnail) }}">
                             </td>
@@ -149,7 +156,7 @@
                                     <a href="/edit/{{$pendingPost->slug}}" class="edit">
                                         Edit <i class="fa-regular fa-pen-to-square"></i>
                                     </a>
-                                    <a href="#" class="delete">
+                                    <a href="/delete/{{ $pendingPost->slug }}" class="delete" id="deletePendingBtn">
                                         Delete <i class="fa-solid fa-trash-can"></i>
                                     </a>
                                 </div>
@@ -157,7 +164,79 @@
                         </tr>
                     @endforeach
                 </table>
+                @else
+                <p>No Pending posts available.</p>
+                @endif
             </div>
         </div>
     </div>
 </div>
+
+
+<script>
+    $(document).ready(function() {
+        $("#deletePublishedBtn").on("click", function(e) {
+            e.preventDefault();
+
+            var deleteUrl = $(this).attr("href");
+            var postElement = $(this).closest(".post");
+
+            $.ajax({
+                url: deleteUrl,
+                type: "get",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    if (response.message) {
+                        console.log(response.message); 
+
+                        postElement.remove();
+                        $('.delete_success').css('display','flex');
+                        $('.ok').click(function(){
+                            $('.delete_success').css('display','none');
+                        });
+                    } else {
+                        console.error("Unexpected response format:", response);
+                    }
+                },
+                error: function(error) {
+                    console.error("Error deleting post:", error.responseText);
+                    console.error("Status Code:", error.status);
+                }
+            });
+        });
+    
+        $("#deletePendingBtn").on("click", function(e) {
+            e.preventDefault();
+
+            var deleteUrl = $(this).attr("href");
+            var postElement = $(this).closest(".post");
+
+            $.ajax({
+                url: deleteUrl,
+                type: "get",
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                success: function(response) {
+                    if (response.message) {
+                        console.log(response.message); 
+
+                        postElement.remove();
+                        $('.delete_success').css('display','flex');
+                        $('.ok').click(function(){
+                            $('.delete_success').css('display','none');
+                        });
+                    } else {
+                        console.error("Unexpected response format:", response);
+                    }
+                },
+                error: function(error) {
+                    console.error("Error deleting post:", error.responseText);
+                    console.error("Status Code:", error.status);
+                }
+            });
+        });
+    });
+</script>

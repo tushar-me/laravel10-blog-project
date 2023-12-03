@@ -47,10 +47,7 @@
             }
             &-right {
                 @apply w-2/5 pl-3;
-                &::after {
-                    content: '';
-                    @apply absolute right-0 top-0 bottom-0 h-full w-[2px] bg-primary;
-                }
+                
                 &-title {
                     @apply mb-5;
                 }

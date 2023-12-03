@@ -1,11 +1,10 @@
-@props(['gadgetPosts'])
-<section class="ex-gadget">
-    <div class="container">
-        @if ($gadgetPosts && count($gadgetPosts) > 3)
+@if ($gadgetPosts && count($gadgetPosts) > 3)
+    <section class="ex-gadget">
+        <div class="container">
             <h2 class="ex-gadget__title ex-title-vector">GADGET</h2>
             <div class="ex-gadget__items">
                 @foreach ( $gadgetPosts as $gadgetPost)
-                    <a href="#" class="ex-gadget__items-item">
+                    <a href="/posts/{{ $gadgetPost->category->name }}/{{ $gadgetPost->slug }}" class="ex-gadget__items-item">
                         <img src="{{asset('uploads/'. $gadgetPost->thumbnail)}}">
                         <div class="ex-gadget__items-item-info">
                             <h4>{{ $gadgetPost->title }}</h4>
@@ -14,9 +13,10 @@
                     </a>
                 @endforeach
             </div>
-        @endif
-    </div>
-</section>
+        </div>
+    </section>
+@endif
+
 
 
 

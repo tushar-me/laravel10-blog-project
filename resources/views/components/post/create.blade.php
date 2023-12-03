@@ -10,9 +10,9 @@
                     </div>
                     <h3>Success!</h3>
                     <h4>A New Blog Post Added Successfully</h4>
-                    <p>An admin needs to review your blog post</p>
+                    <p>Your blog post is currently under review by an administrator and is expected to be approved within the next 72 hours.</p>
                     <div class="ex-create-post__content-popup-box-btns">
-                        <a href="{{ route('user.profile') }}">Profile</a>
+                        <a href="{{ route('home') }}">Home</a>
                         <a href="" class="add">Add More</a>
                     </div>
                 </div>

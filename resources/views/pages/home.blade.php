@@ -6,12 +6,12 @@
             
         <x-home.gadget-post :gadgetPosts="$gadgetPosts"/>
         
-        <x-home.travel-post :travelPosts="$travelPosts"/>
+        <x-home.travel-post :travelPosts="$travelPosts" :travelLatest="$travelLatest"/>
         
         <x-home.create-blog/>
         
         <x-home.news-letter/>
-    @else
+    @else    
         <x-home.guest-section/>
     @endauth
 </x-app-layout>

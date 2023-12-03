@@ -5,6 +5,6 @@
     <div class="ex-main-hero__content">
         <h1>Publish your passions, your way</h1>
         <p>Create a unique and beautiful blog easily.</p>
-        <a href="#">Create Your Blog</a>
+        <a href="{{ route('create.post') }}">Create Your Blog</a>
     </div>
 </div>

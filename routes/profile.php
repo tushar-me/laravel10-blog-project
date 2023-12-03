@@ -6,5 +6,6 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::get('/username', [ShowProfileController::class, 'showProfile'])->name('user.profile');
-Route::get('/username/update', [UpdateProfileController::class, 'updateProfile'])->name('update.profile');
+Route::get('/{username}', [ShowProfileController::class, 'showProfile'])->name('user.profile');
+Route::get('/{username}/edit', [UpdateProfileController::class, 'editProfile'])->name('edit.profile');
+Route::post('/{username}/update', [UpdateProfileController::class, 'updateProfile']);

@@ -1,0 +1,76 @@
+.ex {
+    &-dashboard {
+        @apply p-5;
+        &__head  {
+            @apply flex items-center justify-between bg-primary px-6 py-4 rounded-md;
+            h3 {
+                @apply text-white;
+            }
+            &-profile {
+                &-img {
+                    @apply w-10 h-10 rounded-full overflow-hidden;
+                    img {
+                        @apply w-full h-full object-cover;
+                    }
+                }
+            }
+        }
+        &-post-info {
+            @apply flex mt-6;
+            &-left {
+                @apply w-2/3;
+                &-content {
+                    @apply bg-yellow-300 p-6 pb-10 rounded-md;
+                    h3 {
+                        @apply mb-1;
+                    }
+                }
+                &-post-items {
+                    @apply flex flex-col gap-5 p-5 bg-slate-100 mt-7 rounded-md;
+                    &-item {
+                        @apply p-4 border rounded-sm flex gap-5;
+                        &-thumbnail {
+                            img {
+                                @apply w-24 h-20 rounded-md object-cover;
+                            }
+                        }
+                        &-btns {
+                            @apply flex items-center gap-5 mt-4;
+                            a{
+                                @apply px-3 py-[6px] rounded-full inline-flex items-center gap-2;
+                            }
+                        }
+                    }
+                }
+            }
+            &-right {
+                @apply w-1/3 pl-5;
+                &-items {
+                    @apply flex flex-col gap-5;
+                    &-item {
+                        @apply flex gap-4 p-5 rounded;
+                        h3 {
+                            @apply leading-none mb-1;
+                        }
+                        i {
+                            @apply text-2xl;
+                        }
+                    }
+                }
+                &-category {
+                    @apply bg-pink-300 p-5 rounded-md mt-8;
+                    &-head {
+                        @apply flex items-center justify-between;
+                        a {
+                            @apply flex items-center gap-2 bg-primary text-white rounded px-3 py-2;
+                        }
+                    }
+                    &-items {
+                        @apply bg-white mt-4 rounded p-4 w-full h-60 overflow-y-scroll flex flex-col gap-5;
+                    }
+                }
+            }
+        }
+
+    }
+}

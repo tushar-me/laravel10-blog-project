@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Post\CommentController;
+use App\Http\Controllers\Post\DeletePostController;
 use App\Http\Controllers\Post\LikeController;
 use App\Http\Controllers\Post\ShowPostController;
 use App\Http\Controllers\Post\CreatePostController;
@@ -18,3 +19,5 @@ Route::get('/pending/{slug}', [ShowPostController::class,'pendingSinglePost'])->
 
 Route::post('posts/{id}/toggle-like', [LikeController::class, 'toggleLike'])->name('post.toggleLike');
 Route::post('/comment', [CommentController::class, 'commentStore'])->name('comment.store');
+
+Route::get('/delete/{slug}', [DeletePostController::class, 'destroy'])->name('delete.post');

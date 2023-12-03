@@ -28,17 +28,17 @@
                     </div>
                     <div class="ex__nav__items-profile">
                         <div class="ex__nav__items-profile-img">
-                            <img src="{{ asset('images/author.jpg') }}">
-                            <p>tusharimran</p>
+                            <img src="{{ auth()->user()->profile && auth()->user()->profile->profile_pic ? asset('uploads/' . auth()->user()->profile->profile_pic) : asset('images/post/author/author.png') }}">
+                            <p>{{ auth()->user()->username }}</p>
                         </div>
                         <ul class="ex__nav__items-profile-popup">
                             <li>
-                                <a href="#" class="ex__nav__items-profile-popup-item"> 
+                                <a href="/{{ auth()->user()->username }}" class="ex__nav__items-profile-popup-item"> 
                                     <i class="fa-regular fa-address-card"></i>Profile
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="ex__nav__items-profile-popup-item">
+                                <a href="{{ route('dashboard') }}" class="ex__nav__items-profile-popup-item">
                                     <i class="fa-solid fa-border-all"></i>Dashboard
                                 </a>
                             </li>

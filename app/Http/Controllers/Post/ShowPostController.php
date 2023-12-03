@@ -14,7 +14,8 @@ class ShowPostController extends Controller
     }
     public function publishedSinglePost($category, $slug)
     {
-        $post = Post::where('slug', $slug)->with('user', 'comments')->first();
+        
+        $post = Post::where('slug', $slug)->with('user', 'comments')->where('status', 1)->first();
         $recPosts = Post::whereHas('category', function($query) use ($category){
             $query->where('name', $category);
         })

@@ -8,7 +8,7 @@
                 <div class="ex-single-post__content-left-thumbnail-info-a_c">
                     <div class="ex-single-post__content-left-thumbnail-info-a_c-author">
                         <div>
-                            <img src="">
+                            <img src="{{ $post->user->profile && $post->user->profile->profile_pic ? asset('uploads/' . $post->user->profile->profile_pic) : asset('images/post/author/author.png') }}">
                         </div>
                         <p>{{ $post->user->name }} . {{ $post->created_at->format('F j, Y') }}</p>
                     </div>

@@ -18,7 +18,7 @@
                 <div class="ex-single-post__content-left-thumbnail-info-a_c">
                     <div class="ex-single-post__content-left-thumbnail-info-a_c-author">
                         <div>
-                            <img src="{{ asset('images/post/author/author.png') }}">
+                            <img src="{{ $post->user->profile && $post->user->profile->profile_pic ? asset('uploads/' . $post->user->profile->profile_pic) : asset('images/post/author/author.png') }}">
                         </div>
                         <p>{{ $post->user->name }} . {{ $post->created_at->format('F j, Y') }}</p>
                     </div>
@@ -110,7 +110,7 @@
                 <h4 class="ex-travel__content-right-title">RECOMENDED</h4>
                 <div class="ex-travel__content-right-items">
                     @foreach ( $recPosts as $recPost)
-                        <a href="#" class="ex-travel__content-right-items-item">
+                        <a href="/posts/{{ $recPost->category->name }}/{{ $recPost->slug }}" class="ex-travel__content-right-items-item">
                             <div class="
                             ex-travel__content-right-items-item-thumbnail ex-travel__content-right-items-item-thumbnail--rec
                             ">
@@ -118,7 +118,7 @@
                             </div>
                             <div class="ex-travel__content-right-items-item-text">
                                 <h4>{{ $recPost->title }}</h4>
-                                <p>{{ $recPost->created_at }} . {{ $recPost->read_time}}m read time</p>
+                                <p>{{ $recPost->created_at->format(" M j Y") }} . {{ $recPost->read_time}}m read time</p>
                             </div>
                         </a>
                     @endforeach

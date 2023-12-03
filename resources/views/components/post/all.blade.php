@@ -14,7 +14,7 @@
                             <h3 class="ex-all-post__items-item-box-content-title">{{ Illuminate\Support\Str::words($post->title, $word = 6, $end = '...') }}</h3>
                             <div class="ex-all-post__items-item-box-content-info">
                                 <div class="ex-all-post__items-item-box-content-info-author">
-                                    <img src="{{ asset('images/author.jpg') }}">
+                                    <img src="{{ $post->user->profile && $post->user->profile->profile_pic ? asset('uploads/' . $post->user->profile->profile_pic) : asset('images/post/author/author.png') }}">
                                     <p>{{ $post->user->name }}</p>
                                 </div>
                                 <p class="ex-all-post__items-item-box-content-info-date">{{  $post->read_time }}m read time</p>
