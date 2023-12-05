@@ -43,27 +43,31 @@
                         </li>
                         <li class="bg-green-50 text-green-900">
                             <div>
-                                <i class="fa-regular fa-comments"></i> Replies 
+                                <i class="fa-regular fa-comments"></i> Comments 
                             </div>
-                            <span>0</span>
+                            <span>{{ $comments }}</span>
                         </li>
                         <li class="bg-red-50 text-red-900">
                             <div>
                                 <i class="fa-regular fa-heart"></i> Likes 
                             </div>
-                            <span>0</span>
+                            <span>{{ $likes }}</span>
                         </li>
                     </ul>
                 </div>
                 <div class=" ex-profile-tab-content-badges">
                     <h4>Badges</h4>
                     <ul>
+                        @if (count($publishedPosts) >= 10)
                         <li>
                             <img src="{{ asset('images/badge-1.png')}}">
                         </li>
+                        @endif
+                        @if ($likes >= 10)
                         <li>
                             <img src="{{ asset('images/badge-2.png')}}">
                         </li>
+                        @endif
                     </ul>
                 </div>
             </div>

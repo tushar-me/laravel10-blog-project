@@ -37,11 +37,14 @@
                                     <i class="fa-regular fa-address-card"></i>Profile
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ route('dashboard') }}" class="ex__nav__items-profile-popup-item">
-                                    <i class="fa-solid fa-border-all"></i>Dashboard
-                                </a>
-                            </li>
+                            @if(auth()->check() && auth()->user()->type == 'admin')
+                                <li>
+                                    <a href="/dashboard" class="ex__nav__items-profile-popup-item">
+                                        <i class="fa-solid fa-border-all"></i>Dashboard
+                                    </a>
+                                </li>
+                            @endif
+                            
                             <li>
                                 <a href="{{ route('logout') }}" class="ex__nav__items-profile-popup-item">
                                     <i class="fa-solid fa-right-from-bracket"></i>Logout

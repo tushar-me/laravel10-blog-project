@@ -50,6 +50,6 @@
     <div class="container">
         <h2>Join millions of others</h2>
         <p>Whether sharing your expertise, breaking news, or whatever’s on your mind, you’re in good company on Blogger. Sign up to discover why millions of people have published their passions here.</p>
-        <a href="#">CREATE YOUR BLOG</a>
+        <a href="{{ route('create.post') }}">CREATE YOUR BLOG</a>
     </div>
 </section>

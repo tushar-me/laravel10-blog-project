@@ -1,3 +1,3 @@
 <x-guest-layout>
-    <x-dashboard.summary :posts="$posts" :categories="$categories"/>
+    <x-dashboard.summary :pendingPosts="$pendingPosts" :categories="$categories" :posts="$posts" :likes="$likes"/>
 </x-guest-layout>

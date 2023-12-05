@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Post;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Category;
 use App\Models\Post;
+use App\Models\Like;
+use App\Models\Category;
 
 class PageController extends Controller
 {
@@ -42,4 +43,6 @@ class PageController extends Controller
         
         return view("pages.home", compact('posts', 'gadgetPosts', 'travelPosts', 'travelLatest'));
     }
+
+    
 }

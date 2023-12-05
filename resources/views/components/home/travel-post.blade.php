@@ -13,7 +13,7 @@
                             <h3>{{ $travelLatest->title }}</h3>
                             <p>{{ $travelLatest->created_at->format(" M j Y") }} . {{ $travelLatest->read_time }}m read time</p>
                             <div class="ex-travel__content-left-item-text-btn">
-                                <a href="/posts/{{ $travelLatest->slug }}">Read Article <i class="fa-solid fa-arrow-right-long"></i></a>
+                                <a href="/posts/{{ $travelLatest->category->name }}/{{ $travelLatest->slug }}">Read Article <i class="fa-solid fa-arrow-right-long"></i></a>
                             </div>
                         </div>
                     </a>

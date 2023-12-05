@@ -44,6 +44,11 @@ class User extends Authenticatable /*implements MustVerifyEmail*/
         'password' => 'hashed',
     ];
 
+    public function isAdmin()
+    {
+        return $this->type === 'admin';
+    }
+
     public function posts()
     {
         return $this->hasMany(Post::class);
@@ -51,6 +56,10 @@ class User extends Authenticatable /*implements MustVerifyEmail*/
     public function comments()
     {
         return $this->hasMany(Comment::class);
+    }
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
     }
 
     public function profile(){

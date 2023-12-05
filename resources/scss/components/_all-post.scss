@@ -13,7 +13,7 @@
             &-item {
                 @apply w-1/4 px-2;
                 &-box {
-                    @apply inline-block border rounded-md p-3 hover:border-primary mb-8;
+                    @apply inline-block border rounded-md p-3 hover:border-primary mb-8 w-full;
                     &-thumbnail {
                         img {
                             @apply w-full h-48 object-cover rounded-t-md;

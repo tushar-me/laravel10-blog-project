@@ -12,7 +12,7 @@
                     <h4>A New Blog Post Added Successfully</h4>
                     <p>Your blog post is currently under review by an administrator and is expected to be approved within the next 72 hours.</p>
                     <div class="ex-create-post__content-popup-box-btns">
-                        <a href="{{ route('home') }}">Home</a>
+                        <a href="/{{ auth()->user()->username }}">Profile</a>
                         <a href="" class="add">Add More</a>
                     </div>
                 </div>

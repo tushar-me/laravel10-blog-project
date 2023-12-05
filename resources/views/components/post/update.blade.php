@@ -13,7 +13,7 @@
                     <h4>Blog Post Update Successfully</h4>
                     <p>An admin needs to review your blog post</p>
                     <div class="ex-create-post__content-popup-box-btns">
-                        <a href="{{ route('user.profile') }}">Profile</a>
+                        <a href="/{{ auth()->user()->username }}">Profile</a>
                         <a href="{{ route('create.post') }}" class="add">Add More</a>
                     </div>
                 </div>

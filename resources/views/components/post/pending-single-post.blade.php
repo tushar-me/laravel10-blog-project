@@ -36,7 +36,7 @@
             <div class="ex-single-post__content-left-author">
                 <div class="ex-single-post__content-left-author-head">
                     <div> 
-                        <img src="{{ asset('images/post/author/author.png') }}">
+                        <img src="{{ $post->user->profile && $post->user->profile->profile_pic ? asset('uploads/' . $post->user->profile->profile_pic) : asset('images/post/author/author.png') }}">
                     </div>
                     <div class="ex-single-post__content-left-author-head-info">
                         <p>POSTED BY</p>

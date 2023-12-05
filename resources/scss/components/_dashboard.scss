@@ -7,10 +7,20 @@
                 @apply text-white;
             }
             &-profile {
+                @apply relative;
                 &-img {
                     @apply w-10 h-10 rounded-full overflow-hidden;
                     img {
                         @apply w-full h-full object-cover;
+                    }
+                }
+                &-popup {
+                    @apply hidden absolute top-16 right-4 bg-white py-5 w-48 rounded-md shadow-md  flex-col;
+                    a{
+                        @apply  hover:text-primary py-2 pl-3 flex items-center gap-2;
+                    }
+                    &--active {
+                        @apply flex;
                     }
                 }
             }
@@ -58,15 +68,41 @@
                     }
                 }
                 &-category {
-                    @apply bg-pink-300 p-5 rounded-md mt-8;
+                    @apply bg-pink-300 p-5 rounded-md mt-8 relative;
+                    &-add-popup {
+                        @apply fixed top-0 left-0 right-0 bottom-0 w-full h-screen bg-black bg-opacity-70  items-center justify-center hidden;
+                        &-form {
+                            @apply w-full max-w-md bg-white rounded-md text-center py-6 relative;
+                            .cancel {
+                                @apply absolute w-6 h-6 flex items-center justify-center right-2 top-2;
+                                i {
+                                    @apply text-2xl;
+                                }
+                                &:hover {
+                                    i {
+                                        @apply text-primary;
+                                    }
+                                }
+                            }
+                            h3 {
+                                @apply mb-5;
+                            }
+                            input {
+                                @apply border border-gray-400 rounded text-center;
+                            }
+                        }
+                    }
                     &-head {
                         @apply flex items-center justify-between;
-                        a {
-                            @apply flex items-center gap-2 bg-primary text-white rounded px-3 py-2;
+                        .add_category {
+                            @apply flex items-center gap-2 bg-primary text-white rounded p-3 ;
                         }
                     }
                     &-items {
                         @apply bg-white mt-4 rounded p-4 w-full h-60 overflow-y-scroll flex flex-col gap-5;
+                        h4 {
+                            @apply w-full flex items-center justify-between;
+                        }
                     }
                 }
             }
